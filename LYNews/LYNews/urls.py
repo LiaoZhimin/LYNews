@@ -26,8 +26,12 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('', include('app01.urls', namespace='app01')),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#  为了网页显示上传的图片/文件
