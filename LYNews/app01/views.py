@@ -27,3 +27,7 @@ def upload(request):
                 # 写入本地文件
                 f.write(chunk)
         return HttpResponse("上传OK")
+
+
+def list(request):
+    return JsonResponse({'msg':'OK', 'data':[]})

@@ -23,7 +23,7 @@ class Article(models.Model):
     # primary_key = False 主键，一般和AutoField()一起使用，unique=False 是否唯一值
     # sex = models.BooleanField('性别',choices=[(True,'男'),(False,'女'),],default=False) # 布尔字段，值为True或False
     # points = models.DecimalField(max_digits=8, decimal_places=2) # 十进制浮点数，共8位其中2位小数
-    # points2= models.FloatField()
+    # points2= models.FloatField() name,category,tags,excerpt,body,created_time,views,photo
     body = models.TextField('内容')
     created_time = models.DateTimeField('创建时间', auto_now=True, auto_now_add=False)
     excerpt = models.CharField('摘要', max_length=200, blank=True)  # 文章摘要，可为空
