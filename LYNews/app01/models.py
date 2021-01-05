@@ -5,13 +5,21 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField('分类',max_length=100)
 
+    class Meta:
+        verbose_name = '分类表'
+        verbose_name_plural = verbose_name
+
     def __str__(self):  # 对象显示的信息，表的每行提示的内容
         return self.name
     
 
 class Tags(models.Model):
     name = models.CharField('标签',max_length=100)
-    
+
+    class Meta:
+        verbose_name = '标签表'
+        verbose_name_plural = verbose_name
+
     def __str__(self):  # 对象显示的信息，表的每行提示的内容
         return self.name
     
@@ -32,7 +40,7 @@ class Article(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='分类', default='1')
     tags = models.ManyToManyField(Tags, blank=True, verbose_name='标签')
     views = models.PositiveIntegerField('阅读量',default=0)  # 阅读量
-    photo = models.ImageField('额外图片',null=True, upload_to = 'photos/%Y/%m/%d/')
+    # photo = models.ImageField('额外图片',null=True, upload_to = 'photos/%Y/%m/%d/')
     
     class Meta:
         verbose_name = '文章明细表'
