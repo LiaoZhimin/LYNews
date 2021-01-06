@@ -6,26 +6,27 @@ class Category(models.Model):
     name = models.CharField('分类',max_length=100)
 
     class Meta:
-        verbose_name = '分类表'
+        verbose_name = '分类'
         verbose_name_plural = verbose_name
 
     def __str__(self):  # 对象显示的信息，表的每行提示的内容
         return self.name
-    
+
 
 class Tags(models.Model):
     name = models.CharField('标签',max_length=100)
 
     class Meta:
-        verbose_name = '标签表'
+        verbose_name = '标签'
         verbose_name_plural = verbose_name
 
     def __str__(self):  # 对象显示的信息，表的每行提示的内容
         return self.name
-    
+
 
 class Article(models.Model):
     """分类"""
+    id = models.IntegerField("ID",primary_key=True,auto_created=True)
     name = models.CharField("名称",max_length=100,null=False)
     # db_index=False 是否为该参数创建索引，默认值：default =， max_length =30 限制字符长度 
     # primary_key = False 主键，一般和AutoField()一起使用，unique=False 是否唯一值
@@ -41,9 +42,9 @@ class Article(models.Model):
     tags = models.ManyToManyField(Tags, blank=True, verbose_name='标签')
     views = models.PositiveIntegerField('阅读量',default=0)  # 阅读量
     # photo = models.ImageField('额外图片',null=True, upload_to = 'photos/%Y/%m/%d/')
-    
+
     class Meta:
-        verbose_name = '文章明细表'
+        verbose_name = '文章明细'
         verbose_name_plural = verbose_name
 
     def __str__(self):  # 对象显示的信息，表的每行提示的内容
