@@ -3,7 +3,7 @@ from django.http.response import JsonResponse
 
 
 def index(req):
-    return JsonResponse({'msg': 'OK', 'data': []})
+    return render(req,"index.html",{'msg':'OK','ucode':'Zhang Sanfeng','uname':'张三丰'})
 
 
 def detail(req):
@@ -31,3 +31,4 @@ def upload(request):
 
 def list(request):
     return JsonResponse({'msg':'OK', 'data':[]})
+    
