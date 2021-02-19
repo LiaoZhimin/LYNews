@@ -6,8 +6,11 @@ def index(req):
     return render(req,"index.html",{'msg':'OK','ucode':'Zhang Sanfeng','uname':'张三丰'})
 
 
-def detail(req):
-    return JsonResponse({'msg': 'OK', 'data': []})
+def content(req):
+    return render(req,"content.html",{'msg':'OK','ucode':'Zhang Sanfeng','uname':'张三丰'})
+
+def contact(req):
+    return render(req,"contact.html",{'msg':'OK','ucode':'Zhang Sanfeng','uname':'张三丰'})
 
 
 def upload(request):
@@ -31,4 +34,5 @@ def upload(request):
 
 def list(request):
     return JsonResponse({'msg':'OK', 'data':[]})
-    
+
+
